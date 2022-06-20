@@ -13,7 +13,9 @@ class Product {
     $this->quantity = $_quantity;
   }
   
-
+  public function getInfo(){
+    echo "<strong>Name</strong>: {$this->name}<br><strong>Number</strong>: {$this->number}<br><strong>Price</strong>: {$this->price} &euro; <br><strong>Quantity</strong>: {$this->quantity}";
+  }
   //SETTER
 
   public function setNumber($_number){
@@ -53,13 +55,20 @@ class Product {
 class Toy extends Product{
   private $type;
   private $material;
+  private $category;
 
-  public function __construct($_number,$_name, $_price, $_quantity, $_type, $_material){
+  public function __construct($_number,$_name, $_price, $_quantity, $_type, $_material, $_category){
     parent::__construct($_number,$_name, $_price, $_quantity);
     $this->type = $_type;
     $this->material = $_material;
+    $this->category = $_category;
   }
-  
+  public function getInfo(){
+    parent::getInfo();
+    echo "<br><strong>Material</strong>: {$this->material}
+    <br><strong>Material</strong>: {$this->material}
+    <br><strong>Category</strong>: {$this->category}";
+  }
 
   public function setType($_type){
    $this->type = $_type;
@@ -83,13 +92,16 @@ class Food extends Product{
   private $weight;
   private $ingredients;
 
-  public function __construct($_number,$_name, $_price, $_quantity,$_calories, $_weight, $_ingredients){
+  public function __construct($_number,$_name, $_price, $_quantity,$_calories, $_weight){
     parent::__construct($_number,$_name, $_price, $_quantity);
     $this->calories = $_calories;
     $this->weight = $_weight;
-    $this->ingredients = $_ingredients;
+   
   }
-
+    public function getInfo(){
+    parent::getInfo();
+    echo "<br><strong>Weight</strong>: {$this->weight}<br><strong>Calories</strong>: {$this->calories}";
+  }
   //SETTER
 
   public function setCalories($_calories){
