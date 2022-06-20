@@ -1,19 +1,25 @@
 <?php
 
 class User{
-  private $name;
-  private $surname;
-  private $age;
-  private $creditCard;
-  private $cardValidation; 
+  public $name;
+  public $surname;
+  public $age;
+  public $mail;
+  public $address;
+  protected $creditCard;
+  protected $cardValidation; 
 
 
-  public function __construct($_name, $_surname, $_age){
+  public function __construct($_name, $_surname, $_age,$_creditCard){
    $this->name = $_name;
    $this->surname = $_surname;
    $this->age = $_age;
+   $this->creditCard = $_creditCard;
   }
-  
+
+  public function userInfo(){
+    echo "<strong>Name</strong>: {$this->name}<br><strong>Surname</strong>: {$this->surname}<br><strong>Age</strong>: {$this->age}<br><strong>Tipo di pagamento</strong>: {$this->creditCard}";
+  }
 
   //SETTER
 

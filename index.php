@@ -1,18 +1,27 @@
 <?php 
 
 require_once __DIR__ . '/class/User.php';
-require_once __DIR__ . '/class/RegUser.php';
+require_once __DIR__ . '/class/MemberUser.php';
+require_once __DIR__ . '/class/Prodotto.php';
 
 //DEFINE OBJECTS
-$user1 = new User('John', 'Doe', 30,'MasterCard');
+$user1 = new User('John', 'Smith', 30,'MasterCard');
+$MemberUser1 = new MemberUser('Jane','Low', 26, 'visa');
 
-$userRegistered = new RegUser('Jane','Doe', 20, 'Visa');
 
+//Prodotti
+$prod1 = new Toy(012334,'kong',8.99,1,'masticare','caucciù');
 
-// var_dump($user1);
-//  echo "<br>";
-// var_dump($userRegistered);
+$prod2 = new Food (23344,'Pedigree-Vital', 43.99, 1, 20.000, 25, ['manzo']);
+$prod2->addIngredient('verdure');
 
+$prod3 = new Toy(012334,'kong',8.99,1,'masticare','caucciù');
+
+var_dump($MemberUser1);
+
+// echo "<br>";
+// echo "<br>";
+// var_dump($prod2);
 
 ?>
 <!DOCTYPE html>
@@ -26,14 +35,14 @@ $userRegistered = new RegUser('Jane','Doe', 20, 'Visa');
 </head>
 <body>
   <div class="container my-4">
-    <h1><?php echo $user1->getName() ?> <?php echo $user1->getSurname() ?></h1>
-    <p><?php echo "Età:".' '.$user1->getAge() ?></p>
+    <h3 class="text-uppercase">Utente</h3>
+    <div><?php echo $user1->userInfo() ?></div>
 
   </div>
 
   <div class="container">
-    <h1><?php echo $userRegistered->getName() ?> <?php echo $userRegistered->getSurname() ?></h1>
-    <p><?php echo "Età:".' '.$userRegistered->getAge() ?></p>
+    
+    <h4><?php echo $userRegistered->userInfo() ?></h4>
 
   </div>
 
